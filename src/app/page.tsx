@@ -1,3 +1,4 @@
+import Inventory from "@/components/inventory";
 import SearchBar from "@/components/search-bar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -18,7 +19,7 @@ export default function HomePage() {
           </div>
           <TabsContent value="inventory" className="flex flex-col gap-3">
             <SearchBar />
-            <div className="flex flex-col gap-1"></div>
+            <Inventory />
           </TabsContent>
           <TabsContent value="order-queue">Order Queue</TabsContent>
         </Tabs>

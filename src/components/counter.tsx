@@ -1,0 +1,32 @@
+import { Minus, Plus } from "lucide-react";
+
+interface CounterProps {
+  value: number;
+  pcs: number;
+  accent?: boolean;
+}
+
+export default function Counter({ value, pcs, accent = false }: CounterProps) {
+  return (
+    <div className="flex h-12 w-[196px]">
+      <div className="flex w-12 items-center justify-center rounded-l border-y border-l">
+        <Minus className="h-[18px] w-[18px]" />
+      </div>
+      <div className="flex w-[100px] flex-col font-light">
+        <div
+          className={`flex h-8 items-center justify-center border-x border-t ${accent ? "border-accent bg-accent-foreground" : ""}`}
+        >
+          <div className="text-xl">{value}</div>
+        </div>
+        <div
+          className={`flex h-4 items-center justify-center border ${accent ? "border-accent bg-accent text-primary-foreground" : "bg-accent-secondary text-sidebar-background"}`}
+        >
+          <div className="text-xs">{pcs} PCS</div>
+        </div>
+      </div>
+      <div className="flex w-12 items-center justify-center rounded-r border-y border-r">
+        <Plus className="h-[18px] w-[18px]" />
+      </div>
+    </div>
+  );
+}
