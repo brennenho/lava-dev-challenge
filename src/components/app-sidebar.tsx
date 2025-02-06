@@ -107,10 +107,12 @@ export function AppSidebar() {
             </Avatar>
             <div className="flex w-full flex-row items-center justify-between group-data-[collapsible=icon]:hidden">
               <div className="flex flex-col gap-1">
-                <div className="text-xs font-medium leading-none">
+                <div className="text-xs font-semibold leading-none">
                   Don't Ruin It
                 </div>
-                <div className="text-[10px] leading-none">Pro Crafter</div>
+                <div className="text-[10px] leading-none text-sidebar-primary-foreground">
+                  Pro Crafter
+                </div>
               </div>
               <Link href="/">
                 <Icons.dots />
