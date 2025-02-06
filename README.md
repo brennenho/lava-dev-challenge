@@ -3,6 +3,6 @@
 ## TODO
 
 - [ ] setup deployment
-- [ ] setup ui library
+- [x] setup ui library
 - [ ] sidebar + navigation
 - [ ] materials page
