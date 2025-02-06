@@ -19,7 +19,10 @@ export default function Inventory() {
             item.name.toLowerCase().includes(search.toLowerCase()),
           )
           .map((item) => (
-            <div className="flex justify-between p-2" key={item.name}>
+            <div
+              className="flex flex-col items-center justify-between gap-2 p-2 md:flex-row"
+              key={item.name}
+            >
               <div className="flex items-center gap-4">
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-sm border ${item.img === "/white.png" ? "bg-muted-secondary" : "bg-primary-foreground"}`}

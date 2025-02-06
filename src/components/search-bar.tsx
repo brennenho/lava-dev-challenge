@@ -9,11 +9,11 @@ interface SearchBarProps {
 
 export default function SearchBar({ search, setSearch }: SearchBarProps) {
   return (
-    <div className="flex justify-between px-2 py-[9px]">
+    <div className="flex flex-col justify-between gap-2 px-2 py-[9px] md:flex-row">
       <div className="flex items-center gap-4">
         <Input
           placeholder="Search Materials"
-          className="w-[360px]"
+          className="w-full md:w-[360px]"
           icon={<Search className="h-4 w-4" />}
           value={search}
           onChange={(e) => setSearch(e.target.value)}

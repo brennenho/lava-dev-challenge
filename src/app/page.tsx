@@ -4,7 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function HomePage() {
   return (
     <main className="flex min-h-screen w-full flex-col bg-gradient-to-b from-[hsla(0,0%,95%,1)] to-[hsla(0,0%,100%,1)]">
-      <div className="px-[136px] py-9">
+      <div className="px-12 py-9 md:px-[136px]">
         <Tabs defaultValue="inventory">
           {/* header */}
           <div className="flex justify-between">
