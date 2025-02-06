@@ -4,6 +4,8 @@
 
 - [ ] setup deployment
 - [x] setup ui library
-- [ ] sidebar + navigation
+- [x] sidebar + navigation
+  - [ ] fix sidebar hover behavior
+  - [ ] fix icon formatting when collapsed
 - [ ] styling + font (uncut sans)
 - [ ] materials page
