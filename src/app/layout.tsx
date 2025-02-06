@@ -1,5 +1,5 @@
 import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -20,6 +20,7 @@ export default function RootLayout({
       <body>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
+          <SidebarTrigger />
           {children}
         </SidebarProvider>
       </body>
