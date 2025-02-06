@@ -91,7 +91,10 @@ export function AppSidebar() {
         </div>
         <SidebarFooter className="group-data-[collapsible=icon]:items-center">
           <div>
-            <Button variant="destructive" className="w-full justify-start p-0">
+            <Button
+              variant="destructive"
+              className="w-full justify-start p-0 hover:bg-sidebar-accent"
+            >
               <div className="flex h-9 w-9 items-center justify-center">
                 <LogOut />
               </div>
