@@ -1,8 +1,8 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import "@/styles/globals.css";
+import localFont from "next/font/local";
 
-import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,11 +12,16 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+const uncutSans = localFont({
+  src: "../lib/UncutSans-Variable.ttf",
+  display: "swap",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
+    <html lang="en" className={uncutSans.className}>
       <body>
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
