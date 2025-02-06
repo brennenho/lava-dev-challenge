@@ -53,9 +53,12 @@ export function AppSidebar() {
 
   // sidebar hover transition
   const handleHover = useCallback(
-    debounce((isEntering: boolean) => {
-      setOpen(isEntering);
-    }, 100),
+    (isEntering: boolean) => {
+      const debouncedSet = debounce((value: boolean) => {
+        setOpen(value);
+      }, 100);
+      debouncedSet(isEntering);
+    },
     [setOpen],
   );
 
@@ -133,7 +136,7 @@ export function AppSidebar() {
             <div className="flex w-full flex-row items-center justify-between group-data-[collapsible=icon]:hidden">
               <div className="flex flex-col gap-1">
                 <div className="text-xs font-semibold leading-none">
-                  Don't Ruin It
+                  Don&apos;t Ruin It
                 </div>
                 <div className="text-[10px] leading-none text-sidebar-primary-foreground">
                   Pro Crafter
