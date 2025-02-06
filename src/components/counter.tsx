@@ -1,3 +1,4 @@
+import { chivoMono } from "@/lib/fonts";
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
 
@@ -11,7 +12,7 @@ export default function Counter({ value, pcs, accent = false }: CounterProps) {
   const [count, setCount] = useState(value); // set initial value
 
   return (
-    <div className="flex h-12 w-[196px]">
+    <div className={`flex h-12 w-[196px] ${chivoMono.className}`}>
       {/* decrement button */}
       <div
         className="flex w-12 cursor-pointer items-center justify-center rounded-l border-y border-l"
