@@ -7,5 +7,5 @@
 - [x] sidebar + navigation
   - [ ] fix sidebar hover behavior
   - [ ] fix icon formatting when collapsed
-- [ ] styling + font (uncut sans)
+- [x] styling + font (uncut sans)
 - [ ] materials page
