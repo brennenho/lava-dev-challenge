@@ -1,4 +1,5 @@
 import { Minus, Plus } from "lucide-react";
+import { useState } from "react";
 
 interface CounterProps {
   value: number;
@@ -7,16 +8,21 @@ interface CounterProps {
 }
 
 export default function Counter({ value, pcs, accent = false }: CounterProps) {
+  const [count, setCount] = useState(value);
+
   return (
     <div className="flex h-12 w-[196px]">
-      <div className="flex w-12 items-center justify-center rounded-l border-y border-l">
+      <div
+        className="flex w-12 cursor-pointer items-center justify-center rounded-l border-y border-l"
+        onClick={() => setCount((prev) => Math.max(0, prev - 1))}
+      >
         <Minus className="h-[18px] w-[18px]" />
       </div>
       <div className="flex w-[100px] flex-col font-light">
         <div
           className={`flex h-8 items-center justify-center border-x border-t ${accent ? "border-accent bg-accent-foreground" : ""}`}
         >
-          <div className="text-xl">{value}</div>
+          <div className="text-xl">{count}</div>
         </div>
         <div
           className={`flex h-4 items-center justify-center border ${accent ? "border-accent bg-accent text-primary-foreground" : "bg-accent-secondary text-sidebar-background"}`}
@@ -24,7 +30,10 @@ export default function Counter({ value, pcs, accent = false }: CounterProps) {
           <div className="text-xs">{pcs} PCS</div>
         </div>
       </div>
-      <div className="flex w-12 items-center justify-center rounded-r border-y border-r">
+      <div
+        className="flex w-12 cursor-pointer items-center justify-center rounded-r border-y border-r"
+        onClick={() => setCount((prev) => prev + 1)}
+      >
         <Plus className="h-[18px] w-[18px]" />
       </div>
     </div>

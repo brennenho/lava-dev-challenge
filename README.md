@@ -8,4 +8,4 @@
   - [ ] fix sidebar hover behavior
   - [ ] fix icon formatting when collapsed
 - [x] styling + font (uncut sans)
-- [ ] materials page
+- [x] materials page
