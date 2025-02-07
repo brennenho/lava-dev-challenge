@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useQueryClient } from "@tanstack/react-query";
 import { Plus } from "lucide-react";
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ export default function AddItem() {
   const [quantity, setQuantity] = useState("");
   const [color, setColor] = useState("");
   const [accent, setAccent] = useState(false);
+  const queryClient = useQueryClient();
 
   async function addItem() {
     try {
@@ -43,6 +45,8 @@ export default function AddItem() {
           accent: accent,
         }),
       });
+
+      await queryClient.invalidateQueries({ queryKey: ["inventory"] });
     } catch {
       console.log("Error adding inventory item");
     }

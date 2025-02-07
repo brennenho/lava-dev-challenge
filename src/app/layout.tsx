@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { uncutSans } from "@/lib/fonts";
 import { type Metadata } from "next";
+import { QueryProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "Tally",
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={uncutSans.className}>
       <body>
-        <SidebarProvider defaultOpen={false}>
-          <AppSidebar />
-          {children}
-        </SidebarProvider>
-        <Toaster />
+        <QueryProvider>
+          <SidebarProvider defaultOpen={false}>
+            <AppSidebar />
+            {children}
+          </SidebarProvider>
+          <Toaster />
+        </QueryProvider>
       </body>
     </html>
   );

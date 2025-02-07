@@ -3,8 +3,10 @@
 import Image from "next/image";
 import Counter from "./counter";
 
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import SearchBar from "./search-bar";
+import { Spinner } from "./spinner";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -21,12 +23,26 @@ interface InventoryItem {
   accent: boolean | null;
 }
 
-interface InventoryProps {
-  inventory: InventoryItem[];
+async function fetchInventory(): Promise<InventoryItem[]> {
+  const response = await fetch("/api/inventory");
+  if (!response.ok) {
+    throw new Error("Error fetching inventory");
+  }
+  return response.json();
 }
 
-export default function Inventory({ inventory }: InventoryProps) {
+export default function Inventory() {
   const [search, setSearch] = useState("");
+  const queryClient = useQueryClient();
+
+  const {
+    data: inventory = [],
+    isLoading,
+    isError,
+  } = useQuery<InventoryItem[]>({
+    queryKey: ["inventory"],
+    queryFn: fetchInventory,
+  });
 
   const handleDelete = async (id: number) => {
     try {
@@ -36,10 +52,24 @@ export default function Inventory({ inventory }: InventoryProps) {
           "Content-Type": "application/json",
         },
       });
+
+      await queryClient.invalidateQueries({ queryKey: ["inventory"] });
     } catch {
       console.log("Error deleting inventory item");
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex h-96 items-center justify-center">
+        <Spinner />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return <div>Error fetching inventory</div>;
+  }
 
   return (
     <div className="flex flex-col gap-3">
