@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { useToast } from "@/hooks/use-toast";
 import { debounce } from "lodash";
 import { LogOut } from "lucide-react";
 import Image from "next/image";
@@ -50,6 +51,7 @@ const items = [
 export function AppSidebar() {
   const { setOpen } = useSidebar();
   const pathname = usePathname();
+  const { toast } = useToast();
 
   // sidebar hover transition
   const handleHover = useCallback(
@@ -119,6 +121,11 @@ export function AppSidebar() {
             <Button
               variant="destructive"
               className="w-full justify-start p-0 hover:bg-sidebar-accent"
+              onClick={() => {
+                toast({
+                  title: "Mock User Logout",
+                });
+              }}
             >
               <div className="flex h-9 w-9 items-center justify-center">
                 <LogOut />

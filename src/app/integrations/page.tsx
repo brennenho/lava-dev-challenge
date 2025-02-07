@@ -1,4 +1,4 @@
-import { Blocks } from "lucide-react";
+import { Blocks } from "@/components/icons";
 
 export default function IntegrationPage() {
   return (
@@ -6,7 +6,7 @@ export default function IntegrationPage() {
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
         <Blocks className="h-6 w-6" />
       </div>
-      <div className="text-xl font-medium">Integration</div>
+      <div className="text-xl font-medium">Integrations</div>
       <div></div>
     </main>
   );

@@ -2,6 +2,7 @@ import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import "@/styles/globals.css";
 
+import { Toaster } from "@/components/ui/toaster";
 import { uncutSans } from "@/lib/fonts";
 import { type Metadata } from "next";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
           <AppSidebar />
           {children}
         </SidebarProvider>
+        <Toaster />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { Tag } from "lucide-react";
+import { Tag } from "@/components/icons";
 
 export default function ProductsPage() {
   return (
