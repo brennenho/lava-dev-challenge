@@ -3,11 +3,22 @@
 import Image from "next/image";
 import Counter from "./counter";
 
-import inventory from "@/data/inventory.json";
 import { useState } from "react";
 import SearchBar from "./search-bar";
 
-export default function Inventory() {
+interface InventoryItem {
+  name: string;
+  img: string;
+  value: number;
+  pcs: number;
+  accent: boolean | null;
+}
+
+interface InventoryProps {
+  inventory: InventoryItem[];
+}
+
+export default function Inventory({ inventory }: InventoryProps) {
   const [search, setSearch] = useState("");
 
   return (
@@ -36,7 +47,11 @@ export default function Inventory() {
                 </div>
                 <div>{item.name}</div>
               </div>
-              <Counter value={item.value} pcs={item.pcs} accent={item.accent} />
+              <Counter
+                value={item.value}
+                pcs={item.pcs}
+                accent={item.accent ?? undefined}
+              />
             </div>
           ))}
       </div>

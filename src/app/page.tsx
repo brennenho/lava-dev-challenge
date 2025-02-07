@@ -1,7 +1,9 @@
 import Inventory from "@/components/inventory";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getInventory } from "@/server/queries";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const inventory = await getInventory();
   return (
     <main className="flex min-h-screen w-full flex-col bg-gradient-to-b from-[hsla(0,0%,95%,1)] to-[hsla(0,0%,100%,1)]">
       <div className="px-12 py-9 md:px-[136px]">
@@ -19,7 +21,7 @@ export default function HomePage() {
           </div>
 
           <TabsContent value="inventory">
-            <Inventory />
+            <Inventory inventory={inventory} />
           </TabsContent>
 
           <TabsContent
