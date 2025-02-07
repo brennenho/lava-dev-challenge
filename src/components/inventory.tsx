@@ -31,7 +31,7 @@ export default function Inventory({ inventory }: InventoryProps) {
   const handleDelete = async (id: number) => {
     try {
       await fetch(`/api/delete/${id}`, {
-        method: "GET",
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },

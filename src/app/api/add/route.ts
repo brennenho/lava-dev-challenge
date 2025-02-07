@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { success: false, error: "Unable to add inventory item" },
       { status: 500 },

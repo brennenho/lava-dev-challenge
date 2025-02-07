@@ -1,13 +1,13 @@
 import { deleteInventoryItem } from "@/server/queries";
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 
-export async function GET(
+export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  context: { params: Promise<{ id: string }> },
 ) {
   try {
+    const params = await context.params;
     const id = parseInt(params.id);
-    console.log(id);
 
     if (isNaN(id)) {
       return NextResponse.json(
@@ -23,6 +23,7 @@ export async function GET(
       { status: 200 },
     );
   } catch (error) {
+    console.error(error);
     return NextResponse.json(
       { error: "Failed to delete item" },
       { status: 500 },
