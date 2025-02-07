@@ -1,4 +1,5 @@
-import { ArrowDownUp, ListFilter, Plus, Search } from "lucide-react";
+import { Plus } from "lucide-react";
+import { Filter, Search, UpDownArrows } from "./icons";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
@@ -19,8 +20,8 @@ export default function SearchBar({ search, setSearch }: SearchBarProps) {
           onChange={(e) => setSearch(e.target.value)}
         />
         <div className="flex gap-1 py-1.5">
-          <ListFilter className="h-4 w-4 cursor-pointer stroke-sidebar-primary-foreground" />
-          <ArrowDownUp className="h-4 w-4 cursor-pointer stroke-sidebar-primary-foreground" />
+          <Filter className="h-6 w-6 cursor-pointer stroke-sidebar-primary-foreground" />
+          <UpDownArrows className="h-6 w-6 cursor-pointer stroke-sidebar-primary-foreground" />
         </div>
       </div>
       <Button className="px-4 py-[13px]">

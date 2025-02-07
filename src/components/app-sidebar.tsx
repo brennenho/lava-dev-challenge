@@ -13,12 +13,12 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { debounce } from "lodash";
-import { Blocks, LogOut, ReceiptText, Shapes, Tag } from "lucide-react";
+import { LogOut } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useCallback } from "react";
-import { Icons } from "./icons";
+import { Blocks, Dots, Receipt, Shapes, Tag } from "./icons";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
@@ -38,7 +38,7 @@ const items = [
   {
     title: "Fulfillment",
     url: "/fulfillment",
-    icon: ReceiptText,
+    icon: Receipt,
   },
   {
     title: "Integrations",
@@ -143,7 +143,7 @@ export function AppSidebar() {
                 </div>
               </div>
               <Link href="/">
-                <Icons.dots />
+                <Dots />
               </Link>
             </div>
           </div>
