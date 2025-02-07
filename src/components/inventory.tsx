@@ -28,7 +28,7 @@ async function fetchInventory(): Promise<InventoryItem[]> {
   if (!response.ok) {
     throw new Error("Error fetching inventory");
   }
-  return response.json();
+  return (await response.json()) as InventoryItem[];
 }
 
 export default function Inventory() {
