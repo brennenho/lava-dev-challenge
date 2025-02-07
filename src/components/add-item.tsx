@@ -30,7 +30,7 @@ export default function AddItem() {
 
   async function addItem() {
     try {
-      const response = await fetch("/api/add", {
+      await fetch("/api/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function AddItem() {
         body: JSON.stringify({
           name: itemName,
           value: parseInt(quantity),
-          pcs: 0,
+          pcs: 24,
           img: color,
           accent: accent,
         }),

@@ -1,5 +1,6 @@
 import "server-only";
 
+import { eq } from "drizzle-orm";
 import { db } from "./db";
 import { inventory } from "./db/schema";
 
@@ -30,4 +31,8 @@ export async function addInventoryItem(
     .returning();
 
   return newItem[0];
+}
+
+export async function deleteInventoryItem(id: number) {
+  await db.delete(inventory).where(eq(inventory.id, id));
 }
