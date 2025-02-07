@@ -1,7 +1,6 @@
-import { Plus } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import AddItem from "./add-item";
 import { Filter, Search, UpDownArrows } from "./icons";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 
 interface SearchBarProps {
   search: string;
@@ -24,10 +23,8 @@ export default function SearchBar({ search, setSearch }: SearchBarProps) {
           <UpDownArrows className="h-6 w-6 cursor-pointer stroke-sidebar-primary-foreground" />
         </div>
       </div>
-      <Button className="px-4 py-[13px]">
-        <Plus className="h-2.5 w-2.5" />
-        Add New
-      </Button>
+
+      <AddItem />
     </div>
   );
 }
